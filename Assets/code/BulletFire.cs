@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet_Fire : MonoBehaviour
+public class BulletFire : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject bulletObject;
@@ -10,7 +10,7 @@ public class Bullet_Fire : MonoBehaviour
 
     void Start()
     {
-        bool isFire = Input.GetButtonDown("Fire1");
+        bool isFire = Input.GetButtonDown("Jump");
         if(isFire )
         {
             GameObject bullet = Instantiate(bulletObject);
