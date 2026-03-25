@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
 {
     public GameObject prefabsMonster;
+
     float nowTime;
     float minTime = 1f;
     float maxTime = 5f;
@@ -18,17 +18,15 @@ public class MonsterManager : MonoBehaviour
 
     void Update()
     {
-        nowTime = nowTime = Time.deltaTime;
+        nowTime += Time.deltaTime;
 
-        if (nowTime > createTime) 
-        { 
+        if (nowTime > createTime)
+        {
             GameObject monster = Instantiate(prefabsMonster);
             monster.transform.position = transform.position;
 
             createTime = Random.Range(minTime, maxTime);
-
-            nowTime = 0;
+            nowTime = 0f;
         }
-
     }
 }

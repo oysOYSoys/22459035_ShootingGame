@@ -8,7 +8,7 @@ public class BulletFire : MonoBehaviour
     public GameObject bulletObject;
     public GameObject bulletFireObjact;
 
-    void Start()
+    void Update()
     {
         bool isFire = Input.GetButtonDown("Jump");
         if(isFire )

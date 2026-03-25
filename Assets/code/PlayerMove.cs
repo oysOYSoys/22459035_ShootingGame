@@ -13,9 +13,5 @@ public class PlayerMove : MonoBehaviour
         Vector3 direct = new Vector3(h, 0, v).normalized;
         transform.position = transform.position + direct * moveSpeed * Time.deltaTime;
         
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            transform.position = (Vector3.up * JumpSpeed * Time.deltaTime);
-        }
     }
 }

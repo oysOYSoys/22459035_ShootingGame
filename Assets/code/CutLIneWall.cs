@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CutLIneWall : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(UnityEngine.Collider other)
     {
         Destroy(other.gameObject);
     }
