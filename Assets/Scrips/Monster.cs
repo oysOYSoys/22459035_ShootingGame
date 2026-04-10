@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Monster : MonoBehaviour
+{
+    public float spd = 1.0f;
+    
+    GameObject target;
+
+    Vector3 direct = Vector3.down;
+
+    public GameObject prefabsExplosion;
+
+    private void Start()
+    {
+        int rndNum = Random.Range(0, 10);
+        if (rndNum < 3)
+        {
+            GameObject target = GameObject.Find("Character");
+            direct= target.transform.position - transform.position;
+            direct.Normalize();
+        }
+    }
+
+    void Update()
+    {
+        transform.Translate(direct * spd * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject explosionObj = Instantiate(prefabsExplosion);
+        explosionObj.transform.position = transform.position;
+        Destroy(collision.gameObject);
+        Destroy(gameObject);
+    }
+}
